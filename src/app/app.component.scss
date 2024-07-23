@@ -2,3 +2,31 @@
     height: calc(100dvh - 209px);
     overflow-y: auto;
 }
+
+.match {
+    width: 18.5%;
+}
+
+@media only screen and (max-width: 900px) {
+    .match {
+        width: 23.3%;
+    }
+}
+
+@media only screen and (max-width: 765px) {
+    .match {
+        width: 31.5%;
+    }
+}
+
+@media only screen and (max-width: 765px) {
+    .match {
+        width: 48%;
+    }
+}
+
+@media only screen and (max-width: 465px) {
+    .match {
+        width: 100%;
+    }
+}

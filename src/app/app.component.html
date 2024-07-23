@@ -11,9 +11,9 @@
             <button mat-raised-button color="accent" (click)="startGame()">Start Games</button>
         </div>
 
-        <div class="flex gap-1em wrap p-20 spacebetween-stretch section-container">
+        <div class="flex gap-1em wrap p-20 section-container">
             <app-match *ngFor="let game of gameList.games; let i = index" [game]="game"
-                class="w-32 box-zizing"></app-match>
+                class="match box-zizing"></app-match>
         </div>
     </section>
 </div>

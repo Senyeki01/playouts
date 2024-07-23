@@ -14,11 +14,6 @@ body {
     box-sizing: border-box;
 }
 
-// Size
-.w-32 {
-    width: 32%;
-}
-
 // Paddings
 .p-20 {
     padding: 20px;
@@ -40,6 +35,10 @@ body {
 
 .wrap {
     flex-wrap: wrap;
+}
+
+.gap-05em {
+    gap: 0.5em;
 }
 
 .gap-1em {

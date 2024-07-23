@@ -1,0 +1,19 @@
+<div class="main-container">
+    <mat-toolbar color="primary" class="flex spacebetween-center">
+        <span>My App</span>
+
+        <mat-icon>menu</mat-icon>
+    </mat-toolbar>
+
+    <section>
+        <div class="flex center-center column">
+            <h1 class="text-center">Football Playouts</h1>
+            <button mat-raised-button color="accent" (click)="startGame()">Start Games</button>
+        </div>
+
+        <div class="flex gap-1em wrap p-20 spacebetween-stretch section-container">
+            <app-match *ngFor="let game of gameList.games; let i = index" [game]="game"
+                class="w-32 box-zizing"></app-match>
+        </div>
+    </section>
+</div>

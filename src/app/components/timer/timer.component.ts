@@ -65,9 +65,11 @@ export class TimerComponent implements OnDestroy, OnChanges {
           this.startTime = this.startTime + this.gameList.gameConfig.breakDuration;
         }
 
-        this.intervalId = setInterval(() => {
-          this.updateTimer();
-        }, 10); // Update every 10ms
+        if(breakStatus !== "Match Ended"){
+          this.intervalId = setInterval(() => {
+            this.updateTimer();
+          }, 10); // Update every 10ms
+        }
       }
     })
   }
@@ -82,7 +84,6 @@ export class TimerComponent implements OnDestroy, OnChanges {
 
     // Check if the current half is complete
     if (this.elapsedTime >= (this.gameList.gameConfig.msPerGamePeriod * (this.breakCount + 1))) {
-      debugger;
       // Stop the timer
       this.stopTimer();
 

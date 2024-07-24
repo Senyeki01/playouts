@@ -6,9 +6,17 @@
     </mat-toolbar>
 
     <section>
-        <div class="flex center-center column">
-            <h1 class="text-center">Football Playouts</h1>
-            <button mat-raised-button color="accent" (click)="startGame()">Start Games</button>
+        <div class="flex center-center column time-board gap-05em">
+            <div class="flex-1">
+                <h1 class="text-center">Football Playouts</h1>
+            </div>
+            <!-- Start Button -->
+            <button mat-raised-button color="accent" (click)="startGame()" *ngIf="!gamesStarted">Start
+                Games</button>
+            <!-- Time Area -->
+             <div class="flex time-area" *ngIf="gamesStarted">
+                <app-timer [gameList]="gameList" [gamesStarted]="gamesStarted"></app-timer>
+             </div>
         </div>
 
         <div class="p-20 section-container">

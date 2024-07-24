@@ -7,11 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { MatchComponent } from './components/match/match.component';
+import { TimerComponent } from './components/timer/timer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MatchComponent
+    MatchComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,

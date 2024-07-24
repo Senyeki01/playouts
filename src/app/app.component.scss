@@ -1,10 +1,18 @@
 .section-container {
-    height: calc(100dvh - 209px);
+    height: calc(100dvh - 205px);
     overflow-y: auto;
 }
 
 .match {
     width: 18.5%;
+}
+
+.time-board {
+    height: 100px;
+
+    h1, p {
+        margin: 0;
+    }
 }
 
 @media only screen and (max-width: 900px) {

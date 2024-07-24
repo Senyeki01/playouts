@@ -12,8 +12,6 @@ export class MatchComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes['game']);
-
     if (changes['game']) {
       this.game = changes['game'].currentValue;
     }

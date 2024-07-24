@@ -1,13 +1,13 @@
 <mat-card class="game-card">
     <div class="flex spacebetween-center">
         <div class="team flex column center-center">
-            <img [src]="game.sport['homeTeamImg']" alt="Team Badge" width="50">
-            <p>{{game.sport.homeTeamAbbr}}</p>
+            <img [src]="game['homeTeamImg']" alt="Team Badge" width="50">
+            <p>{{game['homeTeamAbbr']}}</p>
         </div>
-        <div class="score">{{game.sport['homeTeamScore']}} : {{game.sport['awayTeamScore']}}</div>
+        <div class="score">{{game['homeTeamScore']}} : {{game['awayTeamScore']}}</div>
         <div class="team flex column center-center">
-            <img [src]="game.sport['awayTeamImg']" alt="Team Badge" width="50">
-            <p>{{game.sport.awayTeamAbbr}}</p>
+            <img [src]="game['awayTeamImg']" alt="Team Badge" width="50">
+            <p>{{game.awayTeamAbbr}}</p>
         </div>
     </div>
 </mat-card>

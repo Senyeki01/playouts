@@ -1,7 +1,7 @@
-import { SportCreated } from "src/classes/Sport";
 import { SportConfig } from "./SportConfig";
+import { Sport } from "./Sport";
 
 export interface GameList {
     gameConfig: SportConfig,
-    games: SportCreated[],
+    games: Sport[],
 }

@@ -4,16 +4,12 @@ export class IceHockey {
 
     constructor(
         public teamID: number, 
-        public teamName: string, 
-        public msPerGamePeriod: number,
-        public breakDuration: number,        
+        public teamName: string,        
     ) { }
 
     getConfigs() {
         return {
             breakCount: this.breakCount,
-            msPerGamePeriod: this.msPerGamePeriod,
-            breakDuration: this.breakDuration,
             numberOfPlayers: this.numberOfPlayers
         }
     }

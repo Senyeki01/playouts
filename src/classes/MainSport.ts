@@ -92,6 +92,6 @@ export class MainSport {
         this.timeoutService.startTimeout(() => {
             console.log('Match Ended');
             this.breakStatus.next('Match Ended');
-        }, this.gameConfig.msPerGamePeriod * 2 + this.gameConfig.breakDuration);
+        }, this.gameConfig.msPerGamePeriod * 2);
     }
 }

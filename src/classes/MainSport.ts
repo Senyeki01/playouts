@@ -79,7 +79,6 @@ export class MainSport {
 
         this.timeoutService.startTimeout(() => {
             this.breakStatus.next('Half Time');
-            console.log('Half Time', this.gameConfig.breakDuration);
             this.timeoutService.startBreak(this.gameConfig.breakDuration);
             // Break in progress
             window.setTimeout(() => {

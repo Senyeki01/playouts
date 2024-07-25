@@ -16,7 +16,7 @@ export class AppComponent implements OnDestroy {
   games!: MainData;
   gameList!: GameList;
   dataSubscription!: Subscription;
-  gamesStarted:boolean = false;
+  gamesStarted: boolean = false;
 
   constructor(private dataService: DataService, private timeoutService: TimeoutService) {
     this.resetGame();
@@ -36,8 +36,8 @@ export class AppComponent implements OnDestroy {
         numberOfPlayers: 0
       },
       games: [],
-      startGames: () => {},
-      breakStatus$: 0
+      startGames: () => { },
+      breakStatus$: 0,
     }
   }
 

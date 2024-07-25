@@ -31,20 +31,6 @@ export class TimeoutService {
     });
   }
 
-  resumeAllTimeouts() {
-    if (!this.isPaused) return;
-    this.isPaused = false;
-    const currentTime = Date.now();
-
-    this.timeouts.forEach(timeout => {
-      timeout.startTime = currentTime;
-      timeout.timeoutId = window.setTimeout(() => {
-        timeout.callback();
-        this.clearTimeout(timeout.timeoutId);
-      }, timeout.remainingTime);
-    });
-  }
-
   clearTimeout(timeoutId: number) {
     this.timeouts = this.timeouts.filter(timeout => timeout.timeoutId !== timeoutId);
   }

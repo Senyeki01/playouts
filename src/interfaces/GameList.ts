@@ -6,5 +6,6 @@ export interface GameList {
     gameConfig: SportConfig,
     games: Sport[],
     startGames: Function,
-    breakStatus$: any
+    breakStatus$: any,
+    teamScored$: any,
 }

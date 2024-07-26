@@ -3,14 +3,18 @@ import { Sport } from "src/interfaces/Sport";
 import { SportConfig } from "src/interfaces/SportConfig";
 import { Football } from "./Football";
 import { IceHockey } from "./IceHockey";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Subscription } from "rxjs";
 
 export class MainSport {
     public breakStatus = new BehaviorSubject<string>('Game On');
     public breakStatus$ = this.breakStatus.asObservable();
 
+    public teamScored = new BehaviorSubject<string>('');
+    public teamScored$ = this.teamScored.asObservable();
+
     public gameConfig!: SportConfig;
     public games: Sport[] = [];
+    public goals: number[] = [];
 
     constructor(
         private mainData: MainData,
@@ -67,30 +71,18 @@ export class MainSport {
     startGames() {
         this.games.forEach(game => {
             game.goals.forEach(goal => {
-                this.timeoutService.startTimeout(() => {
-                    if (goal.teamID === game.homeTeamID) {
-                        game['homeTeamScore']++;
-                    } else {
-                        game['awayTeamScore']++;
+                const goalsSub: Subscription = this.timeoutService.startTimeout(() => {
+                    if(!this.goals.includes(goal.videoMS)) {
+                        if (goal.teamID === game.homeTeamID) {
+                            game['homeTeamScore']++;
+                        } else {
+                            game['awayTeamScore']++;
+                        }
+                        this.goals.push(goal.videoMS)
+                        this.teamScored.next(goal.teamAbbr)
                     }
                 }, goal.videoMS);
             });
         });
-
-        this.timeoutService.startTimeout(() => {
-            this.breakStatus.next('Half Time');
-            this.timeoutService.startBreak(this.gameConfig.breakDuration);
-            // Break in progress
-            window.setTimeout(() => {
-                console.log('Break Complete')
-                this.timeoutService.resumeAllTimeouts();
-                this.breakStatus.next('Game On');
-            }, this.gameConfig.breakDuration);
-        }, this.gameConfig.msPerGamePeriod);
-
-        this.timeoutService.startTimeout(() => {
-            console.log('Match Ended');
-            this.breakStatus.next('Match Ended');
-        }, this.gameConfig.msPerGamePeriod * 2);
     }
 }

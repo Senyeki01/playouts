@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
-import { TimeoutService } from 'src/app/services/timeout.service';
+import { TimersService } from 'src/app/services/timers.service';
 import { GameList } from 'src/interfaces/GameList';
 
 @Component({
@@ -23,13 +23,14 @@ export class TimerComponent implements OnDestroy, OnChanges {
   private elapsedTime: number = 0;
   private intervalId: any;
 
-  constructor(public timeoutService: TimeoutService) { }
+  constructor(public timerService: TimersService) { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['gamesStarted']) {
       this.gamesStarted = changes['gamesStarted'].currentValue;
       if (this.gamesStarted) {
-        this.startTimer();
+
+        this.timerService.startTimer(this.gameList);
       }
     }
     if (changes['gameList']) {
@@ -65,7 +66,6 @@ export class TimerComponent implements OnDestroy, OnChanges {
         if (breakStatus !== 'Half Time') {
           this.startTime = (this.currentStartTime ? this.currentStartTime : this.startTime) + this.gameList.gameConfig.breakDuration;
         } else {
-          console.log('Break Started', this.gameList.gameConfig.breakDuration);
           this.currentStartTime = this.startTime;
           this.startTime = this.startTime + this.gameList.gameConfig.msPerGamePeriod;
           this.setTime();

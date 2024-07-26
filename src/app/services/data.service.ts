@@ -6,12 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  private jsonUrl = 'assets/football-playout.json';
 
   constructor(private http: HttpClient) {}
 
-  getGames(): Observable<any> {
-    return this.http.get<any>(this.jsonUrl);
+  getGames(gameType: string): Observable<any> {
+    return this.http.get<any>(`assets/${gameType}-playout.json`);
   }
 
 }

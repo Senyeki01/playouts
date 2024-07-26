@@ -20,12 +20,14 @@ export class AppComponent implements OnDestroy {
   teamScored: string = '';
   private timeoutId: any;
 
+  private gameType: string = 'icehockey';
+
   constructor(private dataService: DataService, private timeoutService: TimeoutService) {
     this.resetGame();
 
-    this.dataSubscription = this.dataService.getGames().subscribe(res => {
+    this.dataSubscription = this.dataService.getGames(this.gameType).subscribe(res => {
       this.games = res;
-      this.gameList = new MainSport(this.games, 'football', this.timeoutService); // icehookey
+      this.gameList = new MainSport(this.games, this.gameType, this.timeoutService); // icehookey
 
       // Listen to the team that scores
       this.gameList.teamScored$.subscribe((teamScored:string) => {

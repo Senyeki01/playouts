@@ -17,6 +17,10 @@
              <div class="flex time-area" *ngIf="gamesStarted">
                 <app-timer [gameList]="gameList" [gamesStarted]="gamesStarted"></app-timer>
              </div>
+             <!-- Goal Animation -->
+             <div class="flex column flex-1 goal-animation" *ngIf="teamScored">
+                <app-goal-animation [teamScored]="teamScored"></app-goal-animation>
+            </div>
         </div>
 
         <div class="p-20 section-container">

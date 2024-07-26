@@ -17,6 +17,8 @@ export class AppComponent implements OnDestroy {
   gameList!: GameList;
   dataSubscription!: Subscription;
   gamesStarted: boolean = false;
+  teamScored: string = '';
+  private timeoutId: any;
 
   constructor(private dataService: DataService, private timeoutService: TimeoutService) {
     this.resetGame();
@@ -24,6 +26,18 @@ export class AppComponent implements OnDestroy {
     this.dataSubscription = this.dataService.getGames().subscribe(res => {
       this.games = res;
       this.gameList = new MainSport(this.games, 'football', this.timeoutService); // icehookey
+
+      // Listen to the team that scores
+      this.gameList.teamScored$.subscribe((teamScored:string) => {
+        if (this.timeoutId) {
+          clearInterval(this.timeoutId);
+        }
+        
+        this.teamScored = teamScored;
+        this.timeoutId = setTimeout(() => {
+          this.teamScored = ''
+        }, 7000);
+      })
     });
   }
 
@@ -38,6 +52,7 @@ export class AppComponent implements OnDestroy {
       games: [],
       startGames: () => { },
       breakStatus$: 0,
+      teamScored$: '',
     }
   }
 
@@ -47,6 +62,10 @@ export class AppComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.dataSubscription.unsubscribe();
+
+    if (this.timeoutId) {
+      clearInterval(this.timeoutId);
+    }
   }
 
 }

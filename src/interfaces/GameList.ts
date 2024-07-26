@@ -7,4 +7,5 @@ export interface GameList {
     games: Sport[],
     startGames: Function,
     breakStatus$: any,
+    teamScored$: any,
 }

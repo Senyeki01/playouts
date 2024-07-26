@@ -9,6 +9,9 @@ export class MainSport {
     public breakStatus = new BehaviorSubject<string>('Game On');
     public breakStatus$ = this.breakStatus.asObservable();
 
+    public teamScored = new BehaviorSubject<string>('');
+    public teamScored$ = this.teamScored.asObservable();
+
     public gameConfig!: SportConfig;
     public games: Sport[] = [];
     public goals: number[] = [];
@@ -76,7 +79,7 @@ export class MainSport {
                             game['awayTeamScore']++;
                         }
                         this.goals.push(goal.videoMS)
-                        console.log('GOAL: ', goal)
+                        this.teamScored.next(goal.teamAbbr)
                     }
                 }, goal.videoMS);
             });

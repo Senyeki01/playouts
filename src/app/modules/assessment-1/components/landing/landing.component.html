@@ -1,0 +1,12 @@
+<div class="flex center-center column full-height gap-1em">
+    <h2>Select Your Sport</h2>
+
+    <div class="flex center-center gap-1em wrap">
+        <mat-card *ngFor="let game of games" class="game-card flex center-center" [routerLink]="'/assignment-1/game/' + game.id">
+            <div class="flex column center-center">
+                <img [src]="game.img" [alt]="game.name + ' Image'" width="50" height="50">
+                <p>{{game.name}}</p>
+            </div>
+        </mat-card>
+    </div>
+</div>

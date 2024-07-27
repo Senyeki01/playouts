@@ -1,0 +1,10 @@
+.game-card {
+    background-color: white;
+    padding-top: 20px;
+    width: 300px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: whitesmoke;
+    }
+}

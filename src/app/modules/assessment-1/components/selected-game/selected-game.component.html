@@ -1,0 +1,25 @@
+<div class="flex column">
+    <div class="flex center-center column time-board gap-05em">
+        <div class="flex-1">
+            <h1 class="text-center">{{gameType | titlecase}} Playouts</h1>
+        </div>
+        <!-- Start Button -->
+        <button mat-raised-button color="accent" (click)="startGame()" *ngIf="!gamesStarted">Start
+            Games</button>
+        <!-- Time Area -->
+         <div class="flex time-area" *ngIf="gamesStarted">
+            <app-timer [gameList]="gameList" [gamesStarted]="gamesStarted"></app-timer>
+         </div>
+         <!-- Goal Animation -->
+         <div class="flex column flex-1 goal-animation" *ngIf="teamScored">
+            <app-goal-animation [teamScored]="teamScored"></app-goal-animation>
+        </div>
+    </div>
+
+    <div class="p-20 section-container">
+        <div class="flex gap-1em wrap center-center">
+            <app-match *ngFor="let game of gameList.games; let i = index" [game]="game"
+                class="match box-zizing"></app-match>
+        </div>
+    </div>
+</div>

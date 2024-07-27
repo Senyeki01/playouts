@@ -1,0 +1,70 @@
+.section-container {
+    height: calc(100dvh - 205px);
+    overflow-y: auto;
+}
+
+.match {
+    width: 18.5%;
+}
+
+.time-board {
+    height: 100px;
+    position: relative;
+    overflow-x: hidden;
+
+    h1,
+    p {
+        margin: 0;
+    }
+}
+
+.goal-animation {
+    right: -300px;
+    z-index: 1;
+    position: absolute;
+    animation: goalAnimation 7s;
+}
+
+// Animation
+@keyframes goalAnimation {
+    0% {
+        right: -300px;
+    }
+
+    28.57% { /* 2s into the 7s animation */
+        right: 20px;
+    }
+
+    71.43% { /* 5s at the same position */
+        right: 20px;
+    }
+
+    100% {
+        right: -300px;
+    }
+}
+
+// Responsive
+@media only screen and (max-width: 900px) {
+    .match {
+        width: 23.3%;
+    }
+}
+
+@media only screen and (max-width: 765px) {
+    .match {
+        width: 31.5%;
+    }
+}
+
+@media only screen and (max-width: 765px) {
+    .match {
+        width: 48%;
+    }
+}
+
+@media only screen and (max-width: 465px) {
+    .match {
+        width: 100%;
+    }
+}

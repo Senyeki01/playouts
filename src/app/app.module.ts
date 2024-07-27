@@ -6,23 +6,19 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
-import { MatchComponent } from './components/match/match.component';
-import { TimerComponent } from './components/timer/timer.component';
-import { GoalAnimationComponent } from './components/goal-animation/goal-animation.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MatchComponent,
-    TimerComponent,
-    GoalAnimationComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

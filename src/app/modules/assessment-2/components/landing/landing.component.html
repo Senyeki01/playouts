@@ -1,20 +1,14 @@
 <div class="flex center-center full-height gap-1em">
     <mat-drawer-container class="sidenav-container full-width" autosize>
         <mat-drawer #drawer class="sidenav" mode="side" opened>
-            <div class="flex column start-center full-height gap-1em">
+            <div class="flex column start-center full-height gap-1em p-right-15px">
                 <p>Main Menu</p>
-                <div class="flex column flex-1 w-90 gap-05em">
-                    <div class="flex gap-1em start-center menu-item" [class.selected-menu-item]="selectedItem === i"
-                        *ngFor="let item of navItems; let i = index" (click)="selectedItem = i"
-                        [routerLink]="item.route + '/home'">
-                        <mat-icon>{{item.icon}}</mat-icon>
-                        <p class="no-margin">{{item.name}}</p>
-                    </div>
-                </div>
+                
+                <app-tree-menu></app-tree-menu>
             </div>
         </mat-drawer>
 
-        <section class="full-height">
+        <section class="full-height sidenav-content">
             <router-outlet></router-outlet>
         </section>
     </mat-drawer-container>

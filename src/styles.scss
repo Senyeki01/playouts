@@ -26,6 +26,20 @@ body {
     margin: 0;
 }
 
+// Menu
+.menu-item {
+    padding: 0 15px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    height: 45px;
+}
+
+.menu-item:hover,
+.selected-menu-item {
+    cursor: pointer;
+    background-color: #303030;
+}
+
 // Paddings
 .p-20 {
     padding: 20px;

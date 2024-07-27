@@ -13,4 +13,8 @@ export class DataService {
     return this.http.get<any>(`assets/${gameType}-playout.json`);
   }
 
+  getManagerScene(): Observable<any> {
+    return this.http.get<any>(`assets/scene-manager.json`);
+  }
+
 }

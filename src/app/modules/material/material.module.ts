@@ -7,10 +7,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
+import { MatTreeModule } from '@angular/material/tree';
 
 const ImportExport = [
   MatToolbarModule, MatIconModule, MatCardModule, MatButtonModule, MatSidenavModule,
-  MatTableModule
+  MatTableModule, MatTreeModule
 ];
 
 @NgModule({

@@ -5,8 +5,8 @@ import { LandingComponent } from './components/landing/landing.component';
 import { SelectedGameComponent } from './components/selected-game/selected-game.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/assignment-1/landing', pathMatch: 'full' }, // redirect to `first-component`
-  { path: 'landing', component: LandingComponent },
+  { path: '', redirectTo: '/assignment-1/home', pathMatch: 'full' }, // redirect to `first-component`
+  { path: 'home', component: LandingComponent },
   { path: 'game/:id', component: SelectedGameComponent },
   { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 ];

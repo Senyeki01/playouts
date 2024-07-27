@@ -1,12 +1,6 @@
-<div class="main-container">
-    <mat-toolbar color="primary" class="flex spacebetween-center">
-        <span>My App</span>
-
-        <mat-icon (click)="drawer.toggle()" class="pointer">menu</mat-icon>
-    </mat-toolbar>
-
-    <mat-drawer-container class="sidenav-container" autosize>
-        <mat-drawer #drawer class="sidenav" mode="side" position="end">
+<div class="flex center-center full-height gap-1em">
+    <mat-drawer-container class="sidenav-container full-width" autosize>
+        <mat-drawer #drawer class="sidenav" mode="side" opened>
             <div class="flex column start-center full-height gap-1em">
                 <p>Main Menu</p>
                 <div class="flex column flex-1 w-90 gap-05em">

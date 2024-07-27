@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from 'src/app/components/page-not-found/page-not-found.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/assignment-3', pathMatch: 'full' }, // redirect to `first-component`
-
-  // { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
+  { path: '', redirectTo: '/assignment-3/home', pathMatch: 'full' }, // redirect to `first-component`
+  { path: 'home', component: LandingComponent },
+  { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 ];
 
 @NgModule({

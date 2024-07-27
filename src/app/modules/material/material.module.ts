@@ -5,9 +5,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
 
 const ImportExport = [
-  MatToolbarModule, MatIconModule, MatCardModule, MatButtonModule
+  MatToolbarModule, MatIconModule, MatCardModule, MatButtonModule, MatSidenavModule,
+  MatTableModule
 ];
 
 @NgModule({
